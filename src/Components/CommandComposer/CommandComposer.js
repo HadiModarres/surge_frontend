@@ -14,7 +14,7 @@ class CommandComposer extends React.Component{
     }
 
     commandSelected(command){
-        let args = this.props.getArgsForCommand(command);
+        let args = this.props.argsForCommand(command);
         this.setState({args,options:[],description:""});
     }
 
