@@ -10,24 +10,26 @@ class CommandComposer extends React.Component{
         this.commandSelected = this.commandSelected.bind(this);
         this.showOptions = this.showOptions.bind(this);
         this.showDescription = this.showDescription.bind(this);
-        this.state= {options:[],description:""}
+        this.state= {options:[],description:"",args:[]}
     }
 
     commandSelected(command){
-
+        let args = this.props.getArgsForCommand(command);
+        this.setState({args,options:[],description:""});
     }
-    showOptions(options){
 
+    showOptions(options){
+        this.setState({options});
     }
     showDescription(description){
-
+        this.setState(description);
     }
 
    render() {
        return (<div>
                <Argument arg={{name:"command",displayName:"Command",valueType:"options",options:this.props.commands}} showOptions={this.showOptions} showDescription={this.showDescription}
                valueSelected={this.commandSelected}/>
-               <ArgPane/>
+               <ArgPane args={this.state.args}/>
                <OptionsPane>
                    {this.state.options}
                </OptionsPane>
@@ -38,3 +40,5 @@ class CommandComposer extends React.Component{
        )
    }
 }
+
+export default CommandComposer;
