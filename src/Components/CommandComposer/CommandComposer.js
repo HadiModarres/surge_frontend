@@ -31,7 +31,7 @@ class CommandComposer extends React.Component{
        return (<div>
                <Argument {...{name:"command",displayName:"Command",valueType:"options",options:this.props.commands}} showOptions={this.showOptions} showDescription={this.showDescription}
                valueSpecified={this.commandSelected}/>
-               <ArgPane args={this.state.args}/>
+               <ArgPane showOptions={this.showOptions} showDescription={this.showDescription} args={this.state.args}/>
                <OptionsPane>
                    {this.state.options}
                </OptionsPane>

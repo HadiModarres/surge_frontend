@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import CommandComposer from "./Components/CommandComposer/CommandComposer";
 
+require("arrow-key-nav");
+
 function getCommandList() {
     return [
         {name: "up", description: "Get percentage of positive close prices in a given period."},

@@ -5,7 +5,7 @@ class FieldLabel extends React.Component{
        super(props);
     }
     render() {
-        return (<span onClick={this.props.onClick} tabIndex={"0"} onFocus={()=>{this.props.showDescription(this.props.description)}}>
+        return (<span className={"arrow-navigable"} onClick={this.props.onClick} tabIndex={"0"} onFocus={()=>{this.props.showDescription(this.props.description)}}>
             {this.props.displayName}
         </span>);
     }
