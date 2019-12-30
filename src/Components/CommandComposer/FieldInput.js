@@ -10,12 +10,17 @@ class FieldInput extends React.Component {
         this.setState({currentValue: option});
     }
 
+    inputValueChanged(ev){
+        this.setState({currentValue: ev.target.value});
+        this.props.valueSelected(ev.target.value);
+    }
+
     render() {
-        let opts = this.props.options.map((option) => {
-            return <FieldLabel displayName={option.name} showDescription={this.props.showDescription}
+        let opts = this.props.options.map((option,index) => {
+            return <FieldLabel key={index} displayName={option.name} showDescription={this.props.showDescription}
                                description={option.description} onClick={()=>{this.optionSelected(option)}}/>
         });
-        return(<input value={this.state.currentValue} onFocus={()=>{this.props.showOptions(opts)}} type={"text"}>
+        return(<input onChange={(event) =>{this.inputValueChanged(event);} } value={this.state.currentValue} onFocus={()=>{this.props.showOptions(opts)}} type={"text"}>
 
         </input>);
     }

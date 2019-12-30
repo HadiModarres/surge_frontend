@@ -14,7 +14,9 @@ class CommandComposer extends React.Component{
     }
 
     commandSelected(command){
+        console.log("args");
         let args = this.props.argsForCommand(command);
+        console.log(args);
         this.setState({args,options:[],description:""});
     }
 
@@ -22,13 +24,13 @@ class CommandComposer extends React.Component{
         this.setState({options});
     }
     showDescription(description){
-        this.setState(description);
+        this.setState({description});
     }
 
    render() {
        return (<div>
-               <Argument arg={{name:"command",displayName:"Command",valueType:"options",options:this.props.commands}} showOptions={this.showOptions} showDescription={this.showDescription}
-               valueSelected={this.commandSelected}/>
+               <Argument {...{name:"command",displayName:"Command",valueType:"options",options:this.props.commands}} showOptions={this.showOptions} showDescription={this.showDescription}
+               valueSpecified={this.commandSelected}/>
                <ArgPane args={this.state.args}/>
                <OptionsPane>
                    {this.state.options}
