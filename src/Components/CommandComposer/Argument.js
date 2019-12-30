@@ -5,9 +5,10 @@ import FieldLabel from "./FieldLabel";
 class Argument extends React.Component{
    render() {
       return (<div>
-         <FieldLabel/>
+         <FieldLabel displayName={this.props.displayName} showDescription={this.props.showDescription}
+                     description={this.props.description}/>
          =
-         <FieldInput/>
+         <FieldInput options={this.props.valueType==="options"?this.props.options:[]}/>
       </div>)
    }
 }

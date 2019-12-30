@@ -11,4 +11,4 @@ class FieldLabel extends React.Component{
     }
 }
 
-export default FieldLabel
+export default FieldLabel;
