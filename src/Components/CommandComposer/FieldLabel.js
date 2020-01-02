@@ -5,6 +5,7 @@ class FieldLabel extends React.Component{
        super(props);
     }
     keyPressed(ev){
+        console.log(ev.key);
         switch (ev.key) {
             case 'Enter':
             {
@@ -22,7 +23,7 @@ class FieldLabel extends React.Component{
         }
     }
     render() {
-        return (<span className={"marg arrow-navigable"} onKeyPress={(ev)=>{this.keyPressed(ev)}} onClick={this.props.onClick} tabIndex={"0"} onFocus={()=>{this.props.showDescription(this.props.description)}}>
+        return (<span className={"marg arrow-navigable"} onKeyDown={(ev)=>{this.keyPressed(ev)}} onClick={this.props.onClick} tabIndex={"0"} onFocus={()=>{this.props.showDescription(this.props.description)}}>
             {this.props.displayName}
         </span>);
     }

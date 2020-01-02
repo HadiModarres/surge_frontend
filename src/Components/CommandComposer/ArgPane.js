@@ -29,7 +29,7 @@ class ArgPane extends React.Component {
 
         return (<div>
                 <h2>Args</h2>
-                {[this.props.args,...this.state.activeOptionalArgs].map((value, index) => {
+                {[...this.props.args,...this.state.activeOptionalArgs].map((value, index) => {
                     return <Argument valueSpecified={() => {
                     }} showOptions={this.props.showOptions} showDescription={this.props.showDescription}
                                      key={index} {...value} removeable onRemove={this.argRemoved}/>
