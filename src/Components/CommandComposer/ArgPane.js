@@ -4,9 +4,10 @@ import Argument from "./Argument";
 class ArgPane extends React.Component {
     constructor(props){
         super(props);
-        this.state = {activeOptionalArgs: []};
+        this.state = {activeOptionalArgs: [],ref:undefined};
         this.optionalArgSpecified = this.optionalArgSpecified.bind(this);
         this.argRemoved = this.argRemoved.bind(this);
+        this._refs = [];
     }
 
     optionalArgSpecified(displayName){
@@ -24,15 +25,22 @@ class ArgPane extends React.Component {
         }));
         this.setState({activeOptionalArgs:newOptArgs});
     }
+    toString(){
+        return this._refs.reduce(((previousValue, currentValue) => {
+            return previousValue+" "+currentValue.current;
+        }),"");
+    }
 
     render() {
-
+        this._refs=[];
         return (<div>
                 <h2>Args</h2>
                 {[...this.props.args,...this.state.activeOptionalArgs].map((value, index) => {
+                    let newRef = React.createRef();
+                    this._refs.push(newRef);
                     return <Argument valueSpecified={() => {
                     }} showOptions={this.props.showOptions} showDescription={this.props.showDescription}
-                                     key={index} {...value} removeable onRemove={this.argRemoved}/>
+                                     key={index} {...value} removeable onRemove={this.argRemoved} ref={newRef}/>
                 })}
                 <Argument {...{
                     description: "Add an optional argument",
