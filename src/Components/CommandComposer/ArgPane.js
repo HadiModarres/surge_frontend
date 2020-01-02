@@ -20,7 +20,7 @@ class ArgPane extends React.Component {
 
     argRemoved(arg){
         let newOptArgs = this.state.activeOptionalArgs.filter((value => {
-            return value !== arg;
+            return value.name !== arg.name;
         }));
         this.setState({activeOptionalArgs:newOptArgs});
     }

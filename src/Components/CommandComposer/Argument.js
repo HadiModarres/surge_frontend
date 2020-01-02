@@ -17,7 +17,7 @@ class Argument extends React.Component{
    render() {
       return (<div>
          <FieldLabel displayName={this.props.displayName} showDescription={this.props.showDescription}
-                     description={this.props.description} onRemove={this.remove}/>
+                     description={this.props.description} removeable={this.props.removeable} onRemove={this.remove}/>
          =
          <FieldInput options={this.props.valueType==="options"?this.props.options:[]} showDescription={this.props.showDescription}
          showOptions={this.props.showOptions} valueSpecified={this.props.valueSpecified}/>

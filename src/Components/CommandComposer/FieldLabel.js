@@ -5,9 +5,20 @@ class FieldLabel extends React.Component{
        super(props);
     }
     keyPressed(ev){
-        if (ev.key==='Enter'){
-            ev.target.click();
-            document.getElementsByClassName("arrow-navigable")[0].focus();
+        switch (ev.key) {
+            case 'Enter':
+            {
+                ev.target.click();
+                document.getElementsByClassName("arrow-navigable")[0].focus();
+                break;
+            }
+            case 'Backspace':
+            case 'Delete': {
+                if (this.props.removeable) {
+                    this.props.onRemove();
+                    break;
+                }
+            }
         }
     }
     render() {
