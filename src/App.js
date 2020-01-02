@@ -30,6 +30,17 @@ function pointsArg() {
     }
 }
 
+function intervalArg() {
+    return {
+        name: "interval",
+        displayName: "Interval",
+        description: "Interval type.",
+        valueType: "options",
+        options: [{name: "daily", description: "daily interval."},
+            {name: "weekly", description: "weekly interval."}]
+    }
+}
+
 function getArgsForCommand(command) {
     switch (command) {
         case "up":
@@ -42,11 +53,22 @@ function getArgsForCommand(command) {
     }
 }
 
+function getOptionalArgsForCommand(command) {
+    switch (command) {
+        case "up":
+            return [intervalArg()];
+        case "avg":
+            return [];
+        default:
+            return [];
+    }
+}
 
 function App() {
     return (
         <div className="App">
             <CommandComposer argsForCommand={(command) => getArgsForCommand(command)}
+                             optionalArgsForCommand={(command) => getOptionalArgsForCommand(command)}
                              commands={getCommandList()}/>
         </div>
     );
