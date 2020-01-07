@@ -13,7 +13,7 @@ class App extends React.Component{
 
    async login(username,password){
        try {
-           await api.login("had3", "123");
+           await api.login(username, password);
            console.log("logged in");
            // this.setState({loggedIn: true});
        }catch (e) {
