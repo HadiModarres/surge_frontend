@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import CommandComposer from "./Components/CommandComposer/CommandComposer";
+import CommandComposer from "../CommandComposer/CommandComposer";
 
 require("arrow-key-nav");
 
