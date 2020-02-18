@@ -1,5 +1,5 @@
 import React from "react";
-let api = require("../../API/APIGateway");
+let authAPI = require("../../Services/Endpoints/Authentication");
 
 class UnauthenticatedApp extends React.Component{
     constructor(props) {
@@ -10,7 +10,7 @@ class UnauthenticatedApp extends React.Component{
 
     async loginClicked(){
         try {
-            await api.login(this.state.username, this.state.password);
+            await authAPI.login(this.state.username, this.state.password);
             this.props.onLogin();
         }catch (e) {
             this.setState({error: e});

@@ -1,4 +1,4 @@
-let api = require('./src/API/APIGateway');
+let api = require('./src/Services/Endpoints/Authentication');
 
 
 api.login("had3", "123");

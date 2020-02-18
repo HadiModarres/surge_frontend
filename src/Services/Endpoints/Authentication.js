@@ -1,5 +1,4 @@
-
-class APIGateway {
+class AuthenticationAPI {
     constructor(){
        this.baseURL = "http://localhost:5000/";
 
@@ -31,6 +30,6 @@ class APIGateway {
     }
 }
 
-let apiGateway = new APIGateway();
+let authenticationAPI = new AuthenticationAPI();
 
-module.exports = apiGateway;
+module.exports = authenticationAPI;
