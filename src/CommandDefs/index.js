@@ -13,8 +13,10 @@ class Commands {
     getArgsForCommand(command) {
         switch (command) {
             case "up":
-                return [[symbolArg(), pointsArg()
-                ],[intervalArg]];
+                return {
+                    args:[symbolArg, pointsArg],
+                    optionalArgs: [intervalArg]
+                };
             case "avg":
                 return [];
             default:
@@ -27,4 +29,5 @@ class Commands {
 
 let commands = new Commands();
 
-module.exports= commands;
+export default commands;
+
