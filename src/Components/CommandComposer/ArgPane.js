@@ -27,7 +27,7 @@ class ArgPane extends React.Component {
     }
     toString(){
         return this._refs.reduce(((previousValue, currentValue) => {
-            return previousValue+" "+currentValue.current;
+            return previousValue+currentValue.current+"&";
         }),"");
     }
 

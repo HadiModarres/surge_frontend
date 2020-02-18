@@ -3,12 +3,6 @@ import CommandComposer from "../CommandComposer/CommandComposer";
 
 require("arrow-key-nav");
 
-function getCommandList() {
-    return [
-        {name: "up", description: "Get percentage of positive close prices in a given period."},
-        {name: "avg", description: "Get average of close prices for given period"}
-    ]
-}
 
 function symbolArg() {
     return {
