@@ -6,6 +6,10 @@ require("arrow-key-nav");
 
 
 function AuthenticatedApp(props) {
+    function commandComposed(command,args) {
+
+    }
+
     return (
         <div className="App">
             <button onClick={props.logout}>Logout</button>
