@@ -42,7 +42,7 @@ class CommandComposer extends React.Component{
                <DescriptionPane>
                    {this.state.description}
                </DescriptionPane>
-               <button onClick={()=>{window.alert(this.command+" "+this.argPaneRef.current.toString())}}>Run</button>
+               <button onClick={()=>{this.props.commandComposed(this.command,this.argPaneRef.current.toString())}}>Run</button>
            </div>
        )
    }

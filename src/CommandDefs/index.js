@@ -17,6 +17,11 @@ class Commands {
                     args:[symbolArg, pointsArg],
                     optionalArgs: [intervalArg]
                 };
+            case "roc":
+                return {
+                    args:[symbolArg],
+                    optionalArgs: [intervalArg]
+                };
             case "avg":
                 return {args: [],optionalArgs: []};
             default:
