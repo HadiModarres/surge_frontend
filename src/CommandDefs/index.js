@@ -18,9 +18,9 @@ class Commands {
                     optionalArgs: [intervalArg]
                 };
             case "avg":
-                return [];
+                return {args: [],optionalArgs: []};
             default:
-                return [];
+                return {args: [],optionalArgs: []};
         }
     }
 

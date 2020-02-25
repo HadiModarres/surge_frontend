@@ -9,8 +9,8 @@ function AuthenticatedApp(props) {
     return (
         <div className="App">
             <button onClick={props.logout}>Logout</button>
-            <CommandComposer argsForCommand={(command) => commands.getArgsForCommand(command).args}
-                             optionalArgsForCommand={(command) => commands.getArgsForCommand(command).optionalArgs}
+            <CommandComposer argsForCommand={commands.getArgsForCommand}
+                             optionalArgsForCommand={commands.getArgsForCommand}
                              commands={commands.getCommandList()}/>
         </div>
     );
