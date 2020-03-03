@@ -5,12 +5,15 @@
 .results-container{
     display: flex;
     flex-direction: row;
-    background-color: #61dafb;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .result-item{
     flex: 1;
+}
+
+.arrow-navigable{
+    margin:3px;
 }
 
 

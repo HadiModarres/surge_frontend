@@ -35,7 +35,7 @@ function AuthenticatedApp(props) {
             <div className={"results-container"}>
                 {results.map((result) => {
                     return <Draggable defaultClassName={"shadow result-item"}><span style={{width: "400px"}}><ReactJson
-                        displayDataTypes={false} style={{width: "400px", backgroundColor: "white"}}
+                        displayDataTypes={false} style={{width: "300px", backgroundColor: "white"}}
                         theme={"rjv-default"} src={result}/></span></Draggable>
 
                 })}
