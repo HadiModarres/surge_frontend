@@ -33,7 +33,7 @@ class ArgPane extends React.Component {
 
     render() {
         this._refs=[];
-        return (<div>
+        return (<div style={{overflowX:"auto", whiteSpace:"nowrap"}}>
                 <h2>Args</h2>
                 {[...this.props.args,...this.state.activeOptionalArgs].map((value, index) => {
                     let newRef = React.createRef();
