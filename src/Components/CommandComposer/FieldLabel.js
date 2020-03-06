@@ -7,7 +7,7 @@ class FieldLabel extends React.Component{
     keyPressed(ev){
         console.log(ev.key);
         switch (ev.key) {
-            case 'Enter':
+            case ' ':
             {
                 ev.target.click();
                 document.getElementsByClassName("arrow-navigable")[0].focus();
