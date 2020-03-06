@@ -16,7 +16,6 @@ class CommandComposer extends React.Component {
     }
     componentDidMount() {
         document.onkeypress= e =>{
-
             if (e.key === 'Enter'){
                 this.runClicked();
             }

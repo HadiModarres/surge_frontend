@@ -4,10 +4,11 @@ import FieldLabel from "./FieldLabel";
 class FieldInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state= {currentValue: ""};
+        this.state = {currentValue: ""};
+        this.inputField = React.createRef();
     }
 
-    optionSelected(name){
+    optionSelected(name) {
         // this.setState({currentValue: option});
         // this.props.valueSpecified(option);
 
@@ -15,30 +16,44 @@ class FieldInput extends React.Component {
         this.props.valueSpecified(name);
     }
 
-    inputValueChanged(ev){
+    focus(){
+        this.inputField.current.focus();
+    }
+
+    inputValueChanged(ev) {
         this.setState({currentValue: ev.target.value});
         this.props.valueSpecified(ev.target.value);
         this.props.showOptions(this.getOptions(ev.target.value));
     }
-    getOptions(val){
-        let opts = this.props.options.filter((option)=>{
-            if (option.name.startsWith(val)){
+
+    getOptions(val) {
+        let opts = this.props.options.filter((option) => {
+            if (option.name.startsWith(val)) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
-        }) ;
-        opts = opts.map((option,index) => {
+        });
+        opts = opts.map((option, index) => {
 
             return <FieldLabel key={index} displayName={option.name} showDescription={this.props.showDescription}
-                               description={option.description} onClick={(ev)=>{this.optionSelected(option.name)}}/>
+                               description={option.description} onClick={(ev) => {
+                this.optionSelected(option.name)
+            }}/>
         });
         return opts;
     }
 
     render() {
 
-        return(<input className={"arrow-navigable"} onChange={(event) =>{this.inputValueChanged(event);} } value={this.state.currentValue} onFocus={()=>{this.props.showOptions(this.getOptions(this.state.currentValue))}} type={"text"}>
+        return (<input className={"arrow-navigable"}
+                       onChange={(event) => {
+                           this.inputValueChanged(event);
+                       }}
+                       ref={this.inputField}
+                       value={this.state.currentValue} onFocus={() => {
+            this.props.showOptions(this.getOptions(this.state.currentValue))
+        }} type={"text"}>
 
         </input>);
     }

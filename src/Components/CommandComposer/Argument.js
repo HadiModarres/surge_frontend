@@ -9,6 +9,12 @@ class Argument extends React.Component{
       this.fieldInputRef = React.createRef();
    }
 
+   componentDidMount() {
+      if (this.props.name === "command"){
+        this.fieldInputRef.current.focus();
+      }
+   }
+
    remove(){
       if (this.props.removeable) {
          this.props.onRemove(this.props);
