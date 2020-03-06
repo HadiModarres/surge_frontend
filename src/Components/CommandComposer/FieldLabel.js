@@ -1,14 +1,20 @@
 import React from "react";
 
-class FieldLabel extends React.Component{
-    constructor(props){
-       super(props);
+class FieldLabel extends React.Component {
+    constructor(props) {
+        super(props);
+        this.labelElem = React.createRef();
     }
-    keyPressed(ev){
+
+    keyPressed(ev) {
         console.log(ev.key);
+        console.log(document.activeElement);
+        console.log(this.labelElem);
         switch (ev.key) {
-            case ' ':
-            {
+            case ' ': {
+                if (document.activeElement !== this.labelElem.current)
+                    return;
+                ev.preventDefault();
                 ev.target.click();
                 document.getElementsByClassName("arrow-navigable")[0].focus();
                 break;
@@ -22,8 +28,13 @@ class FieldLabel extends React.Component{
             }
         }
     }
+
     render() {
-        return (<span className={"marg arrow-navigable"} onKeyDown={(ev)=>{this.keyPressed(ev)}} onClick={this.props.onClick} tabIndex={"0"} onFocus={()=>{this.props.showDescription(this.props.description)}}>
+        return (<span ref={this.labelElem} className={"marg arrow-navigable"} onKeyDown={(ev) => {
+            this.keyPressed(ev)
+        }} onClick={this.props.onClick} tabIndex={"0"} onFocus={() => {
+            this.props.showDescription(this.props.description)
+        }}>
             {this.props.displayName}
         </span>);
     }

@@ -33,7 +33,7 @@ class ArgPane extends React.Component {
 
     render() {
         this._refs=[];
-        return (<div style={{overflowX:"auto", whiteSpace:"nowrap"}}>
+        return (<span style={{overflowX:"auto", whiteSpace:"nowrap"}}>
                 {[...this.props.args,...this.state.activeOptionalArgs].map((value, index) => {
                     let newRef = React.createRef();
                     this._refs.push(newRef);
@@ -48,7 +48,7 @@ class ArgPane extends React.Component {
                     valueType: "options",
                     options: this.props.optionalArgs
                 }} showOptions={this.props.showOptions} showDescription={this.props.showDescription} valueSpecified={this.optionalArgSpecified}/>
-            </div>
+            </span>
         )
     }
 }
