@@ -14,9 +14,10 @@ class CommandComposer extends React.Component {
         this.argPaneRef = React.createRef();
         this.command = "";
     }
+
     componentDidMount() {
-        document.onkeypress= e =>{
-            if (e.key === 'Enter'){
+        document.onkeypress = e => {
+            if (e.key === 'Enter') {
                 this.runClicked();
             }
         }
@@ -39,7 +40,7 @@ class CommandComposer extends React.Component {
         this.setState({description});
     }
 
-    runClicked(){
+    runClicked() {
         this.props.commandComposed(this.command, this.argPaneRef.current.toString());
     }
 
@@ -48,7 +49,7 @@ class CommandComposer extends React.Component {
             <>
                 <div className={"results-container"}>
 
-                    <div style={{alignText:"center",flex: 3}}>
+                    <div style={{alignText: "center", flex: 3}}>
                         <Argument {...{
                             description: "Specify a command to execute.",
                             name: "command",
@@ -64,16 +65,18 @@ class CommandComposer extends React.Component {
                             {this.state.options}
                         </OptionsPane>
                     </div>
-                    <div style={{flex:2}}>
+                    <div style={{flex: 2}}>
                         <DescriptionPane>
                             {this.state.description}
                         </DescriptionPane>
                     </div>
                 </div>
-                <button className={"arrow-navigable"} onClick={() => {
-                    this.runClicked();
-                }}>Run
-                </button>
+                <div style={{textAlign:'center'}}>
+                    <button style={{margin: "auto", display:"block"}}  onClick={() => {
+                        this.runClicked();
+                    }}>Run
+                    </button>
+                </div>
             </>
         )
     }

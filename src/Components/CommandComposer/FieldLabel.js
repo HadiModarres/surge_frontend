@@ -1,4 +1,5 @@
 import React from "react";
+import {jumpToFirstEmptyInputField} from "../../Utils/dom";
 
 class FieldLabel extends React.Component {
     constructor(props) {
@@ -16,7 +17,9 @@ class FieldLabel extends React.Component {
                     return;
                 ev.preventDefault();
                 ev.target.click();
-                document.getElementsByClassName("arrow-navigable")[0].focus();
+                setTimeout(()=>{
+                    jumpToFirstEmptyInputField("arrow-navigable");
+                },300);
                 break;
             }
             case 'Backspace':
@@ -28,6 +31,8 @@ class FieldLabel extends React.Component {
             }
         }
     }
+
+
 
     render() {
         return (<span ref={this.labelElem} className={"marg arrow-navigable"} onKeyDown={(ev) => {
