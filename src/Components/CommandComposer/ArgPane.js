@@ -31,6 +31,11 @@ class ArgPane extends React.Component {
         }),"");
     }
 
+    hashCode(str) {
+        return str.split('').reduce((prevHash, currVal) =>
+            (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+    }
+
     render() {
         this._refs=[];
         return (<span style={{overflowX:"auto", whiteSpace:"nowrap"}}>
@@ -39,7 +44,7 @@ class ArgPane extends React.Component {
                     this._refs.push(newRef);
                     return <Argument valueSpecified={() => {
                     }} showOptions={this.props.showOptions} showDescription={this.props.showDescription}
-                                     key={index} {...value} removeable onRemove={this.argRemoved} ref={newRef}/>
+                                     key={this.hashCode(JSON.stringify(value))} {...value} removeable onRemove={this.argRemoved} ref={newRef}/>
                 })}
                 <Argument {...{
                     description: "Add an optional argument",
