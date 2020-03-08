@@ -6,17 +6,28 @@ import ReactJson from "react-json-view";
 import Draggable from "react-draggable";
 import "./AuthenticatedApp.css";
 import * as SVGLoaders from 'svg-loaders-react';
+import ResultWrapper from "../Result/ResultWrapper";
+import { v4 as uuidv4 } from 'uuid';
+
 
 require("arrow-key-nav");
 
 
 function AuthenticatedApp(props) {
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState({});
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     function addResult(result) {
-        setResults([...results, result]);
+        results[uuidv4()]=result;
+        setResults(results);
+    }
+    function removeResult(key){
+        console.log(key);
+        delete results[key];
+        console.log(results);
+        // console.log({...results});
+        setResults({...results});
     }
 
     async function commandComposed(command, args) {
@@ -43,12 +54,10 @@ function AuthenticatedApp(props) {
                 </div>
             }
             <div className={"results-container"}>
-                {results.map((result, index) => {
-                    return <Draggable key={index} defaultClassName={"shadow result-item"}><span
-                        style={{width: "400px"}}><ReactJson
+                {Object.entries(results).map((result, index) => {
+                    return <ResultWrapper index={result[0]} key={result[0]} onClose={(key)=>{console.log("closed");removeResult(key)}}><ReactJson
                         displayDataTypes={false} style={{width: "300px"}}
-                        theme={"rjv-default"} src={result}/></span></Draggable>
-
+                        theme={"rjv-default"} src={result[1]}/></ResultWrapper>
                 })}
             </div>
             <div>{error && error}</div>
