@@ -13,7 +13,7 @@ let pointsArg = {
     valueType: "number"
 };
 
-let returnPointCount ={
+let returnPointCount = {
     name: "points",
     displayName: "returned point count",
     description: "Limit the resulting data points count to this number.",
@@ -26,7 +26,35 @@ let intervalArg = {
     description: "Interval type.",
     valueType: "options",
     options: [{name: "daily", description: "daily interval."},
-        {name: "weekly", description: "weekly interval."},{name: "monthly", description: "monthly interval."}]
+        {name: "weekly", description: "weekly interval."}, {name: "monthly", description: "monthly interval."}]
 };
 
-module.exports = {symbolArg, pointsArg, intervalArg, returnPointCount};
+let marketArg = {
+    name: "market",
+    displayName: "Market",
+    description: "Initiate the pool with the symbols from this market.",
+    valueType: "options",
+    options: [{name: "nasdaq", description: "NASDAQ"},
+        {name: "nyse", description: "NYSE"},
+        {name: "asx", description: "ASX"},
+        {name: "asx200", description: "ASX200"},
+        {name: "asx100", description: "ASX100"},
+        {name: "sp500", description: "SP500"},
+        {name: "sp500_asx200", description: "SP500 plus ASX200"}
+    ]
+};
+
+let marketInitSymbolCount = {
+    name: "count",
+    displayName: "# of symbols to add",
+    description: "Add this many symbols from the given market to the pool. The symbols to add are selected randomly.",
+    valueType: "number"
+};
+
+module.exports = {
+    symbolArg,
+    pointsArg,
+    intervalArg,
+    marketArg,
+    marketInitSymbolCount,
+    returnPointCount};

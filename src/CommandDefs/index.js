@@ -3,7 +3,9 @@ import {
     symbolArg,
     pointsArg,
     intervalArg,
-    returnPointCount
+    returnPointCount,
+    marketInitSymbolCount,
+    marketArg
 } from "./Arguments";
 
 class Commands {
@@ -25,6 +27,11 @@ class Commands {
                 };
             case "avg":
                 return {args: [],optionalArgs: []};
+            case "pool-init":
+                return {
+                    args:[marketArg],
+                    optionalArgs: [marketInitSymbolCount]
+                };
             default:
                 return {args: [],optionalArgs: []};
         }
