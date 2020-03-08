@@ -45,11 +45,11 @@ class FieldInput extends React.Component {
     }
 
     render() {
-
         return (<input className={"arrow-navigable"}
                        onChange={(event) => {
                            this.inputValueChanged(event);
                        }}
+                       size={10}
                        ref={this.inputField}
                        value={this.state.currentValue} onFocus={() => {
             this.props.showOptions(this.getOptions(this.state.currentValue))

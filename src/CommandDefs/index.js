@@ -2,7 +2,8 @@ import commandsList from "./Commands";
 import {
     symbolArg,
     pointsArg,
-    intervalArg
+    intervalArg,
+    returnPointCount
 } from "./Arguments";
 
 class Commands {
@@ -20,7 +21,7 @@ class Commands {
             case "roc":
                 return {
                     args:[symbolArg],
-                    optionalArgs: [intervalArg]
+                    optionalArgs: [pointsArg,returnPointCount,intervalArg]
                 };
             case "avg":
                 return {args: [],optionalArgs: []};
