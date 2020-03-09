@@ -5,6 +5,7 @@ import {
     intervalArg,
     returnPointCount,
     marketInitSymbolCount,
+    seriesIdentifiersArray,
     marketArg
 } from "./Arguments";
 
@@ -31,6 +32,10 @@ class Commands {
                 return {
                     args:[marketArg],
                     optionalArgs: [marketInitSymbolCount]
+                };
+            case "pool-populate":
+                return {
+                    args:[seriesIdentifiersArray]
                 };
             default:
                 return {args: [],optionalArgs: []};

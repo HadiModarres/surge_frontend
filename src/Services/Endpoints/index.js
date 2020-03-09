@@ -1,5 +1,7 @@
 import fetchRoc from "./ROC";
 import fetchPoolInit from "./PoolInit";
+import fetchPoolPopulate from "./PoolPopulate";
+
 
 let callAPIMethod = async function(command,args){
     switch (command) {
@@ -11,6 +13,8 @@ let callAPIMethod = async function(command,args){
             break;
         case "pool-init":
             return await fetchPoolInit(args);
+        case "pool-populate":
+            return await fetchPoolPopulate(args);
         default:
     }
 };

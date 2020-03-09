@@ -51,10 +51,18 @@ let marketInitSymbolCount = {
     valueType: "number"
 };
 
+let seriesIdentifiersArray = {
+    name: "series",
+    displayName: "series ids",
+    description: "a comma separated array of time series identifiers to populate. e.g. roc_daily_1,roc_daily_2",
+    valueType: "array"
+};
+
 module.exports = {
     symbolArg,
     pointsArg,
     intervalArg,
     marketArg,
     marketInitSymbolCount,
+    seriesIdentifiersArray,
     returnPointCount};
