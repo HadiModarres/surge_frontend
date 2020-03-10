@@ -5,4 +5,5 @@ export default [
     {name: "pool-init", description: "Initiate pool of stock symbols."},
     {name: "pool-populate", description: "Populate symbols currently in the pool with the given time series data."},
     {name: "info", description: "Get information about the current stock pool."},
+    {name: "empty-unmatched", description: "empty the series for stocks that don't match with series of other stocks"},
 ];

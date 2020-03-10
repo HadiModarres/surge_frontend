@@ -2,6 +2,7 @@ import fetchRoc from "./ROC";
 import fetchPoolInit from "./PoolInit";
 import fetchPoolPopulate from "./PoolPopulate";
 import fetchInfo from "./PoolInfo";
+import fetchEmptyUnmatched from "./EmptyUnmatched";
 
 
 let callAPIMethod = async function(command,args){
@@ -18,6 +19,8 @@ let callAPIMethod = async function(command,args){
             return await fetchPoolPopulate(args);
         case "info":
             return await fetchInfo(args);
+        case "empty-unmatched":
+            return await fetchEmptyUnmatched(args);
         default:
     }
 };

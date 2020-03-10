@@ -44,6 +44,12 @@ class Commands {
                     optionalArgs: []
                 };
 
+            case "empty-unmatched":
+                return {
+                    args:[],
+                    optionalArgs: []
+                };
+
             default:
                 return {args: [],optionalArgs: []};
         }
