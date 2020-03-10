@@ -35,8 +35,15 @@ class Commands {
                 };
             case "pool-populate":
                 return {
-                    args:[seriesIdentifiersArray]
+                    args:[seriesIdentifiersArray],
+                    optionalArgs: []
                 };
+            case "info":
+                return {
+                    args:[],
+                    optionalArgs: []
+                };
+
             default:
                 return {args: [],optionalArgs: []};
         }
