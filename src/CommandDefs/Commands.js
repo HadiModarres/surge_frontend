@@ -6,4 +6,5 @@ export default [
     {name: "pool-populate", description: "Populate symbols currently in the pool with the given time series data."},
     {name: "info", description: "Get information about the current stock pool."},
     {name: "empty-unmatched", description: "empty the series for stocks that don't match with series of other stocks"},
+    {name: "remove-unmatched", description: "remove stocks whose series dont match those of other stocks"},
 ];
