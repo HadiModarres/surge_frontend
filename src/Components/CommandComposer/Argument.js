@@ -26,6 +26,10 @@ class Argument extends React.Component{
    toString(){
       return this.props.name+"="+this.fieldInputRef.current.state.currentValue;
    }
+
+   toJson(){
+      return {name: this.props.name, value: this.fieldInputRef.current.state.currentValue}
+   }
    render() {
       return (<span>
          <FieldLabel displayName={this.props.displayName} showDescription={this.props.showDescription}

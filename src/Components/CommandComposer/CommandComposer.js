@@ -41,8 +41,10 @@ class CommandComposer extends React.Component {
     }
 
     runClicked() {
-        this.props.commandComposed(this.command, this.argPaneRef.current.toString());
+        // this.props.commandComposed(this.command, this.argPaneRef.current.toString());
+        this.props.commandComposed(this.command,this.argPaneRef.current.toJson());
     }
+
 
     render() {
         return (

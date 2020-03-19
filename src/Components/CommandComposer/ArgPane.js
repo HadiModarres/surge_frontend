@@ -31,6 +31,12 @@ class ArgPane extends React.Component {
         }),"");
     }
 
+    toJson(){
+       return this._refs.map(value => {
+           return value.current.toJson();
+       }) ;
+    }
+
     hashCode(str) {
         return str.split('').reduce((prevHash, currVal) =>
             (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
