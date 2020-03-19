@@ -1,5 +1,6 @@
-let api = require('./src/Services/Endpoints/Authentication');
 
+let a = [{test1:"t1"},{test2: "t2"}];
 
-api.login("had3", "123");
+let [{test1}] = a;
 
+console.log(test1);

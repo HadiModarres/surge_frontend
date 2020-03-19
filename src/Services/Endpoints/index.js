@@ -4,6 +4,7 @@ import fetchPoolPopulate from "./PoolPopulate";
 import fetchInfo from "./PoolInfo";
 import fetchEmptyUnmatched from "./EmptyUnmatched";
 import fetchRemoveUnmatched from "./RemoveUnmatched";
+import fetchSyn from "./Syn";
 import {argsToQueryParams} from "../../Utils/args";
 
 
@@ -25,6 +26,8 @@ let callAPIMethod = async function(command,args){
             return await fetchEmptyUnmatched(args);
         case "remove-unmatched":
             return await fetchRemoveUnmatched(args);
+        case "syn":
+            return await fetchSyn(args);
         default:
     }
 };

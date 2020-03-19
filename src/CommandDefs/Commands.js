@@ -7,4 +7,5 @@ export default [
     {name: "info", description: "Get information about the current stock pool."},
     {name: "empty-unmatched", description: "empty the series for stocks that don't match with series of other stocks"},
     {name: "remove-unmatched", description: "remove stocks whose series dont match those of other stocks"},
+    {name: "syn", description: "Generate clusters of stocks optimizing a certain formula(condition)."},
 ];

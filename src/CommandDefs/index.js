@@ -6,7 +6,10 @@ import {
     returnPointCount,
     marketInitSymbolCount,
     seriesIdentifiersArray,
-    marketArg
+    marketArg,
+    rewindPointCount,
+    clusterSize,
+    formula
 } from "./Arguments";
 
 class Commands {
@@ -43,11 +46,15 @@ class Commands {
                     args:[],
                     optionalArgs: []
                 };
-
             case "empty-unmatched":
                 return {
                     args:[],
                     optionalArgs: []
+                };
+            case "syn":
+                return {
+                    args:[formula],
+                    optionalArgs: [rewindPointCount,clusterSize]
                 };
 
             default:

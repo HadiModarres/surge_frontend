@@ -58,6 +58,27 @@ let seriesIdentifiersArray = {
     valueType: "array"
 };
 
+let rewindPointCount = {
+    name: "points",
+    displayName: "rewind point count",
+    description: "use data up to the point going back this many times. e.g if 3 is provided, data is considered as if we were 3 days in the past.",
+    valueType:"number"
+};
+
+let clusterSize = {
+    name: "cluster_size",
+    displayName: "stock cluster size",
+    description: "synthesize clusters of this size.",
+    valueType: "number"
+};
+
+let formula = {
+    name: "formula",
+    displayName: "optimization formula",
+    description: "use top clusters synthesized using this formula. e.g. if avg_daily_3 is provided as formula, clusters are returned who have the highest average roc in the past 3 days.",
+    valueType: "string"
+};
+
 module.exports = {
     symbolArg,
     pointsArg,
@@ -65,4 +86,7 @@ module.exports = {
     marketArg,
     marketInitSymbolCount,
     seriesIdentifiersArray,
+    rewindPointCount,
+    clusterSize,
+    formula,
     returnPointCount};
